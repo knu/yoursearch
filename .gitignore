@@ -1,6 +1,7 @@
 /.env
 /.powenv
 /.bundle/
+/db/*.db
 /tmp/
 /log/*.log
 /vendor/bundle/

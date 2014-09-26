@@ -19,6 +19,19 @@ Currently the following plugins are implemented:
     Jump instantly to a specified user or repository, or search for
     Users, Repositories, Code and Issues.
 
+- RubyGems
+
+    Suggest gems which name start with a given prefix.  This plugin
+    builds a local database indexing the official gem list.  It seems
+    the RubyGems API is too slow to serve as suggestion data source
+    when Firefox has a hard limit of 0.500 seconds as response
+    timeout.
+
+    Run the following command periodically to keep your local database
+    up-to-date:
+
+        ruby -r./app -e 'Suggestions::Rubygems.fetch_index'
+
 ## Author
 
 Copyright (c) 2014 Akinori MUSHA.
