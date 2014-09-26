@@ -14,6 +14,11 @@ Currently the following plugins are implemented:
     Jump instantly to a specified user, search on Twitter, or search
     using Topsy.
 
+- GitHub
+
+    Jump instantly to a specified user or repository, or search for
+    Users, Repositories, Code and Issues.
+
 ## Author
 
 Copyright (c) 2014 Akinori MUSHA.

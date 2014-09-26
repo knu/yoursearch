@@ -97,3 +97,4 @@ class Suggestions
 end
 
 require 'suggestions/twitter'
+require 'suggestions/github'
