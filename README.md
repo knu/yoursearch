@@ -32,6 +32,14 @@ Currently the following plugins are implemented:
 
         ruby -r./app -e 'Suggestions::Rubygems.fetch_index'
 
+- Wikipedia Universal
+
+    Search across multiple Wikipedias in parallel.
+
+## Configuration
+
+Use `.env.example` as a template for creating your own `.env`.
+
 ## Author
 
 Copyright (c) 2014 Akinori MUSHA.

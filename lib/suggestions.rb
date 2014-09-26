@@ -99,3 +99,4 @@ end
 require 'suggestions/twitter'
 require 'suggestions/github'
 require 'suggestions/rubygems'
+require 'suggestions/wikipedia'
