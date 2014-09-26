@@ -5,6 +5,15 @@ This is a tiny web app to provide
 Sinatra.  You can run it on your local host to improve your browser
 experience with search.
 
+## List of Plugins
+
+Currently the following plugins are implemented:
+
+- Twitter
+
+    Jump instantly to a specified user, search on Twitter, or search
+    using Topsy.
+
 ## Author
 
 Copyright (c) 2014 Akinori MUSHA.

@@ -1,0 +1,6 @@
+/.env
+/.powenv
+/.bundle/
+/tmp/
+/log/*.log
+/vendor/bundle/

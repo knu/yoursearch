@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>YourSearch Plugins</title>
+    <%- @engines.each { |engine| -%>
+    <link rel="search" type="application/opensearchdescription+xml" title="<%= engine.title %>" href="<%= engine_xml_url(engine) %>"/>
+    <%- } -%>
+  </head>
+
+  <body>
+    <ul>
+      <%- @engines.each { |engine| -%>
+      <li><button onclick="javascript:window.external.AddSearchProvider(document.head.querySelector('link[rel=search][title=\'<%= engine.title %>\']').href)">Install &quot;<%= engine.title %>&quot; search plugin</button></li>
+      <%- } -%>
+    </ul>
+  </body>
+</html>

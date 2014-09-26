@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName><%= @engine.title %></ShortName>
+  <Description><%= @engine.title %></Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16"><%= @engine.icon %></Image>
+  <Url type="application/x-suggestions+json"
+       template="<%= (app_base_uri + 'search/%s.json' % @engine.name).to_s %>?q={searchTerms}"/>
+  <Url type="text/html"
+       template="<%= (app_base_uri + 'search/%s' % @engine.name).to_s %>?q={searchTerms}"/>
+</OpenSearchDescription>

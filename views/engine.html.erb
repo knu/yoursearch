@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title><%= @engine.title %></title>
+    <link rel="search" type="application/opensearchdescription+xml" title="<%= @engine.title %>" href="<%= engine_xml_url(@engine) %>"/>
+  </head>
+
+  <body>
+    <button onclick="javascript:window.external.AddSearchProvider(document.head.querySelector('link[rel=search]').href)">Install &quot;<%= @engine.title %>&quot; search plugin</button>
+  </body>
+</html>
