@@ -70,7 +70,7 @@ class Suggestions::Twitter < Suggestions
 
   def topsy_uri(query, lang: nil)
     if lang
-      TOPSY_URI + '?q=%s&language=%s' % [escape(keyword), escape(lang)]
+      TOPSY_URI + '?q=%s&language=%s' % [escape(query), escape(lang)]
     else
       TOPSY_URI + '?q=%s' % escape(query)
     end
