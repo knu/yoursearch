@@ -30,7 +30,7 @@ Currently the following plugins are implemented:
     Run the following command periodically to keep your local database
     up-to-date:
 
-        ruby -r./app -e 'Suggestions::Rubygems.fetch_index'
+        bin/runner Suggestions::Rubygems.fetch_index
 
 - Wikipedia Universal
 

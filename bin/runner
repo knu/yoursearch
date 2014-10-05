@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../app.rb'
+
+ARGV.each { |expr|
+  eval expr
+}
