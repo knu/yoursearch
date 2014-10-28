@@ -1,5 +1,5 @@
 require 'base64'
-require 'cgi'
+require 'rack/utils'
 require 'uri'
 
 class Suggestions
@@ -60,7 +60,7 @@ class Suggestions
   private
 
   def escape(string)
-    CGI.escape(string)
+    Rack::Utils.escape_path(string)
   end
 
   Engine = Struct.new(:class, :name, :title, :icon_uri)
