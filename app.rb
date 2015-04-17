@@ -4,6 +4,8 @@ Bundler.require
 require 'dotenv'
 Dotenv.load
 
+ActiveRecord::Base.establish_connection
+
 require 'sinatra/json'
 
 $LOAD_PATH.unshift(File.expand_path('lib', File.dirname(__FILE__)))
