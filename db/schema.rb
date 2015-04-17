@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140926062050) do
 
-  create_table "rubygems", force: true do |t|
+  create_table "rubygems", force: :cascade do |t|
     t.string   "name",                             null: false
     t.integer  "generation", limit: 1, default: 1, null: false
     t.datetime "created_at"
