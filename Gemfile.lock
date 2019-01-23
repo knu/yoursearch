@@ -19,7 +19,7 @@ GEM
     builder (3.2.2)
     coderay (1.1.0)
     concurrent-ruby (1.1.4)
-    dotenv (2.0.1)
+    dotenv (2.6.0)
     erubis (2.7.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
