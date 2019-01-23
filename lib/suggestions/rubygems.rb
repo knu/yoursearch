@@ -29,7 +29,7 @@ class Suggestions::Rubygems < Suggestions
   class << self
     def fetch_index
       blob = HTTP.get(SITE_URI + 'latest_specs.4.8.gz').body
-      tuples = Marshal.load(Gem.gunzip(blob))
+      tuples = Marshal.load(Gem::Util.gunzip(blob))
 
       Entry.import {
         tuples.each { |name, version|
