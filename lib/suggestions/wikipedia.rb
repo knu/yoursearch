@@ -6,46 +6,48 @@ class Suggestions::Wikipedia < Suggestions
   TIMEOUT = 0.450
 
   def initialize(keyword, lang: nil)
-    super
+    case keyword
+    when /\A([a-z]{2,3}):\s*(.*)/m
+      lang = [$1]
+      super
+      keyword = $2
+    else
+      super
+    end
 
     self.langs << 'en' << 'ja' if langs.empty?
 
-    case keyword
-    when /\A([a-z]{2,3}):\s+(.*)/m
-      add_word($2, lang: $1)
-    else
-      {}.tap { |hash|
-        limit =
-          case nlangs = langs.size
-          when 1, 2, 3
-            6 / nlangs
-          else
-            1
-          end
+    {}.tap { |hash|
+      limit =
+        case nlangs = langs.size
+        when 1, 2, 3
+          6 / nlangs
+        else
+          1
+        end
 
-        langs.map { |lang|
-          Thread.start {
-            begin
-              response = HTTP.get { |request|
-                request.url search_uri(keyword, lang: lang)
-                request.options.timeout = TIMEOUT
-              }
-              if response.success?
-                hash[lang] = JSON.parse(response.body)[1].take(limit)
-              end
-            rescue Faraday::TimeoutError
+      langs.map { |lang|
+        Thread.start {
+          begin
+            response = HTTP.get { |request|
+              request.url search_uri(keyword, lang: lang)
+              request.options.timeout = TIMEOUT
+            }
+            if response.success?
+              hash[lang] = JSON.parse(response.body)[1].take(limit)
             end
-          }
-        }.each(&:join)
+          rescue Faraday::TimeoutError
+          end
+        }
+      }.each(&:join)
 
-        langs.each { |lang|
-          words = hash[lang] or next
-          words.each { |word|
-            add_word(word, lang: lang)
-          }
+      langs.each { |lang|
+        words = hash[lang] or next
+        words.each { |word|
+          add_word(word, lang: lang)
         }
       }
-    end
+    }
   end
 
   def add_word(word, lang: 'en')
