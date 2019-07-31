@@ -16,7 +16,7 @@ GEM
     backports (3.11.4)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
-    dotenv (2.6.0)
+    dotenv (2.7.5)
     erubis (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
